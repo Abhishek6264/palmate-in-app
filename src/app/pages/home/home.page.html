@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+     User Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card >
+    <ion-card-header>
+      <ion-card-subtitle class="ion-center">Current Time</ion-card-subtitle>
+      <ion-card-title>{{today | date:'h:mm:ss a'}}</ion-card-title>
+    </ion-card-header>
+    </ion-card>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeMd="6" offsetMd="3">
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input formControlName="firstName" type="text" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input formControlName="lastName" type="text" required>
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" offsetMd="3">
+        <ion-button type="submit" expand="block" color="primary" [disabled]="userForm.invalid">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
